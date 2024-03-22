@@ -19,11 +19,13 @@ const senhaConfirmada = usuario.senha == confirmaSenha ? true : false
   <div class="form">
     <form class="form-info" action="">
       <input class="input-user" type="text" placeholder="Nome" required />
+      <input class="input-user" type="text" placeholder="Data de nascimento" required />
       <input class="input-user" type="email" placeholder="Email" required />
       <input class="input-user" type="password" placeholder="Senha" required />
       <input class="input-user" type="password" placeholder="Confirma Senha" required />
       <input class="input-user" type="text" placeholder="Cidade" required />
       <input class="input-user" type="text" placeholder="Estado" required />
+      <input class="input-user" type="text" placeholder="Endereço" required />
       <input class="input-user" type="text" placeholder="Hobbies" />
       <label for="">Linguagem de programação favorita</label>
       <input class="input-user" type="radio" value="JavaScript" />
