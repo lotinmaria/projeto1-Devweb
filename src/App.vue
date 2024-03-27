@@ -23,7 +23,7 @@ const senhaConfirmada = usuario.senha == confirmaSenha ? true : false
         <input class="input-user" type="email" placeholder="Email"  />
         <input class="input-user" type="password" placeholder="Senha"  />
         <input class="input-user" type="password" placeholder="Confirma Senha"  />
-        <select name="estados" id="estados">
+        <select class="input-user" name="estados" id="estados">
           <option value="">Acre</option>
           <option value="">Alagoas</option>
           <option value="">Amapá</option>
