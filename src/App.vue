@@ -20,25 +20,60 @@ const senhaConfirmada = usuario.senha == confirmaSenha ? true : false
       <form class="form-info" action="">
         <h1 class="titulo">Formulário</h1>
         <input class="input-user" type="text" placeholder="Nome" required />
-        <input class="input-user" type="text" placeholder="Data de nascimento" required />
-        <input class="input-user" type="email" placeholder="Email" required />
-        <input class="input-user" type="password" placeholder="Senha" required />
-        <input class="input-user" type="password" placeholder="Confirma Senha" required />
-        <input class="input-user" type="text" placeholder="Cidade" required />
-        <input class="input-user" type="select" placeholder="Estado" required />
-        <input class="input-user" type="text" placeholder="Endereço" required />
+        <input class="input-user" type="email" placeholder="Email"  />
+        <input class="input-user" type="password" placeholder="Senha"  />
+        <input class="input-user" type="password" placeholder="Confirma Senha"  />
+        <select name="estados" id="estados">
+          <option value="">Acre</option>
+          <option value="">Alagoas</option>
+          <option value="">Amapá</option>
+          <option value="">Amazonas</option>
+          <option value="">Bahia</option>
+          <option value="">Ceará</option>
+          <option value="">Espírito Santo</option>
+          <option value="">Goiás</option>
+          <option value="">Maranhão</option>
+          <option value="">Mato Grosso</option>
+          <option value="">Mato Grosso do Sul</option>
+          <option value="">Minas Gerais</option>
+          <option value="">Pará</option>
+          <option value="">Paraíba</option>
+          <option value="">Paraná</option>
+          <option value="">Penambuco</option>
+          <option value="">Piauí</option>
+          <option value="">Rio de Janeiro</option>
+          <option value="">Rio Grande do Norte</option>
+          <option value="">Rio Grande do Sul</option>
+          <option value="">Rondônia</option>
+          <option value="">Roraima</option>
+          <option value="">Santa Catarina</option>
+          <option value="">São Paulo</option>
+          <option value="">Sergipe</option>
+          <option value="">Tocantins</option>
+          <option value="">Distrito Federal</option>
+        </select>
+        <input class="input-user" type="text" placeholder="Cidade"  />
+        <input class="input-user" type="text" placeholder="Endereço"  />
         <input class="input-user" type="text" placeholder="Hobbies" />
-      <label for="">Linguagem de programação favorita</label>
+        <input class="input-user" type="date" placeholder="Data de nascimento"  />
+        <label for="">Linguagem de programação favorita</label>
       <input class="input-user" type="radio" value="JavaScript" />
       <input class="input-user" type="text" placeholder="Biografia" />
-      <input class="input-button" type="submit" name="" id="" />
+      <input class="input-button" type="submit" name="cuceta" id="pinto" />
     </form>
   </div>
   
   <div class="resultado">
     <h1>Resultado</h1>
-    <div class="conteudo">
-      conteúdo
+    <div class="conteudo">  
+      <div class="infos">{{ usuario.nome }}</div>
+      <div class="infos">{{ usuario }}</div>
+      <div class="infos">{{ usuario }}</div>
+      <div class="infos">{{ usuario }}</div>
+      <div class="infos">{{ usuario }}</div>
+      <div class="infos">{{ usuario }}</div>
+      <div class="infos">{{ usuario }}</div>
+      <div class="infos">{{ usuario }}</div>
     </div>
 
 
