@@ -1,15 +1,60 @@
 <script setup>
-const usuario = {
+import { reactive, ref } from 'vue'; 
+
+const estados = ref([
+  { sigla: 'AC', nome: 'Acre' },
+  { sigla: 'AL', nome: 'Alagoas' },
+  { sigla: 'AP', nome: 'Amapá' },
+  { sigla: 'AM', nome: 'Amazonas' },
+  { sigla: 'BA', nome: 'Bahia' },
+  { sigla: 'CE', nome: 'Ceará' },
+  { sigla: 'DF', nome: 'Distrito Federal' },
+  { sigla: 'ES', nome: 'Espírito Santo' },
+  { sigla: 'GO', nome: 'Goiás' },
+  { sigla: 'MA', nome: 'Maranhão' },
+  { sigla: 'MT', nome: 'Mato Grosso' },
+  { sigla: 'MS', nome: 'Mato Grosso do Sul' },
+  { sigla: 'MG', nome: 'Minas Gerais' },
+  { sigla: 'PA', nome: 'Pará' },
+  { sigla: 'PB', nome: 'Paraíba' },
+  { sigla: 'PR', nome: 'Paraná' },
+  { sigla: 'PE', nome: 'Pernambuco' },
+  { sigla: 'PI', nome: 'Piauí' },
+  { sigla: 'RJ', nome: 'Rio de Janeiro' },
+  { sigla: 'RN', nome: 'Rio Grande do Norte' },
+  { sigla: 'RS', nome: 'Rio Grande do Sul' },
+  { sigla: 'RO', nome: 'Rondônia' },
+  { sigla: 'RR', nome: 'Roraima' },
+  { sigla: 'SC', nome: 'Santa Catarina' },
+  { sigla: 'SP', nome: 'São Paulo' },
+  { sigla: 'SE', nome: 'Sergipe' },
+  { sigla: 'TO', nome: 'Tocantins' }
+])
+
+const hobbies = ref([
+  'andar de bicicleta',
+  'ler',
+  'nadar',
+  'correr',
+  'programar',
+  'dançar',
+  'pintar',
+  'ouvir música',
+])
+
+const usuario = reactive({
   nome: '',
   email: '',
   senha: '',
   cidade: '',
+  endereco: '',
   estado: '',
-  hobbies: '',
-  programacao: '',
+  hobbies: [],
+  nascimento: null,
+  programacao: [],
   biografia: ''
-}
-const confirmaSenha = ''
+})
+const confirmaSenha = ref('')
 
 const senhaConfirmada = usuario.senha == confirmaSenha ? true : false
 </script>
@@ -19,60 +64,30 @@ const senhaConfirmada = usuario.senha == confirmaSenha ? true : false
     <div class="form">
       <form class="form-info" action="">
         <h1 class="titulo">Formulário</h1>
-        <input class="input-user" type="text" placeholder="Nome" required />
-        <input class="input-user" type="email" placeholder="Email"  />
-        <input class="input-user" type="password" placeholder="Senha"  />
-        <input class="input-user" type="password" placeholder="Confirma Senha"  />
-        <select class="input-user" name="estados" id="estados">
-          <option value="">Acre</option>
-          <option value="">Alagoas</option>
-          <option value="">Amapá</option>
-          <option value="">Amazonas</option>
-          <option value="">Bahia</option>
-          <option value="">Ceará</option>
-          <option value="">Espírito Santo</option>
-          <option value="">Goiás</option>
-          <option value="">Maranhão</option>
-          <option value="">Mato Grosso</option>
-          <option value="">Mato Grosso do Sul</option>
-          <option value="">Minas Gerais</option>
-          <option value="">Pará</option>
-          <option value="">Paraíba</option>
-          <option value="">Paraná</option>
-          <option value="">Penambuco</option>
-          <option value="">Piauí</option>
-          <option value="">Rio de Janeiro</option>
-          <option value="">Rio Grande do Norte</option>
-          <option value="">Rio Grande do Sul</option>
-          <option value="">Rondônia</option>
-          <option value="">Roraima</option>
-          <option value="">Santa Catarina</option>
-          <option value="">São Paulo</option>
-          <option value="">Sergipe</option>
-          <option value="">Tocantins</option>
-          <option value="">Distrito Federal</option>
+        <input class="input-user" v-model="usuario.nome" type="text" placeholder="Nome" required />
+        <input class="input-user"  v-model= "usuario.email" type="email" placeholder="Email"  />
+        <input class="input-user" v-model= "usuario.senha" type="password" placeholder="Senha"  />
+        <input class="input-user" v-model= "confirmaSenha" type="password" placeholder="Confirma Senha"  />
+        <select class="input-user"  v-model="usuario.estados" name="estados" id="estados">
+          <option v-for="estado in estados" :key="estado.sigla" :value="estado.sigla">{{ estado.nome }}</option>
         </select>
-        <input class="input-user" type="text" placeholder="Cidade"  />
-        <input class="input-user" type="text" placeholder="Endereço"  />
-        <input class="input-user" type="text" placeholder="Hobbies" />
-        <input class="input-user" type="date" placeholder="Data de nascimento"  />
+        <input class="input-user"  v-model="usuario.cidade" type="text" placeholder="Cidade"  />
+        <input class="input-user"  v-model="usuario.endereco" type="text" placeholder="Endereço"  />
+        <label for="">hobbies</label>
+        <div v-for="(hobbie, id) in hobbies" :key="id">
+          <input type="checkbox" v-model="usuario.hobbies" :value="hobbie">{{ hobbie }}
+        </div>
+        <input class="input-user" v-model="usuario.nascimento" type="date" placeholder="Data de nascimento"  />
         <label for="">Linguagem de programação favorita</label>
       <input class="input-user" type="radio" value="JavaScript" />
       <input class="input-user" type="text" placeholder="Biografia" />
-      <input class="input-button" type="submit" name="cuceta" id="pinto" />
+      <input class="input-button" type="submit" name="" id="" />
     </form>
   </div>
   
   <div class="resultado">
     <h1>Resultado</h1>
-    <div class="conteudo">  
-      <div class="infos">{{ usuario.nome }}</div>
-      <div class="infos">{{ usuario }}</div>
-      <div class="infos">{{ usuario }}</div>
-      <div class="infos">{{ usuario }}</div>
-      <div class="infos">{{ usuario }}</div>
-      <div class="infos">{{ usuario }}</div>
-      <div class="infos">{{ usuario }}</div>
+    <div class="conteudo" >  
       <div class="infos">{{ usuario }}</div>
     </div>
 
